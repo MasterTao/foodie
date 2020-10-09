@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.monkey.mapper.UserAddressMapper">
+  <resultMap id="BaseResultMap" type="com.monkey.pojo.UserAddress">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="address_id" jdbcType="INTEGER" property="addressId" />
+    <result column="address_type" jdbcType="VARCHAR" property="addressType" />
+    <result column="address_name" jdbcType="VARCHAR" property="addressName" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="consignee" jdbcType="VARCHAR" property="consignee" />
+    <result column="first_name" jdbcType="VARCHAR" property="firstName" />
+    <result column="last_name" jdbcType="VARCHAR" property="lastName" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="country" jdbcType="SMALLINT" property="country" />
+    <result column="province" jdbcType="SMALLINT" property="province" />
+    <result column="city" jdbcType="SMALLINT" property="city" />
+    <result column="district" jdbcType="SMALLINT" property="district" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="zipcode" jdbcType="VARCHAR" property="zipcode" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="sign_building" jdbcType="VARCHAR" property="signBuilding" />
+    <result column="best_time" jdbcType="VARCHAR" property="bestTime" />
+    <result column="province_text" jdbcType="VARCHAR" property="provinceText" />
+    <result column="city_text" jdbcType="VARCHAR" property="cityText" />
+    <result column="district_text" jdbcType="VARCHAR" property="districtText" />
+    <result column="is_default" jdbcType="BIT" property="isDefault" />
+    <result column="tax_code_type" jdbcType="BIT" property="taxCodeType" />
+    <result column="tax_code_value" jdbcType="VARCHAR" property="taxCodeValue" />
+    <result column="suburb" jdbcType="VARCHAR" property="suburb" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="nearest_landmark" jdbcType="VARCHAR" property="nearestLandmark" />
+    <result column="location_type" jdbcType="VARCHAR" property="locationType" />
+  </resultMap>
+</mapper>
