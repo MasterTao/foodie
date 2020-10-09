@@ -3,13 +3,17 @@ package com.monkey.controller;
 import com.monkey.pojo.Users;
 import com.monkey.pojo.bo.UserBO;
 import com.monkey.service.UserService;
+import com.monkey.utils.CookieUtils;
 import com.monkey.utils.JsonResult;
+import com.monkey.utils.JsonUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author tao
@@ -44,7 +48,9 @@ public class PassportController {
 
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
     @PostMapping("/register")
-    public JsonResult register(@RequestBody UserBO userBO) {
+    public JsonResult register(@RequestBody UserBO userBO,
+                               HttpServletRequest request,
+                               HttpServletResponse response) {
 
         String username = userBO.getUsername();
         String password = userBO.getPassword();
@@ -74,14 +80,21 @@ public class PassportController {
         }
 
         // 5. 实现注册
-        userService.createUser(userBO);
+        Users userResult = userService.createUser(userBO);
+
+        setNullProperty(userResult);
+
+        CookieUtils.setCookie(request, response, "user", JsonUtils.objectToJson(userResult), true);
+
 
         return JsonResult.ok();
     }
 
     @ApiOperation(value = "用户登录", notes = "用户登录", httpMethod = "POST")
     @PostMapping("/login")
-    public JsonResult login(@RequestBody UserBO userBO) {
+    public JsonResult login(@RequestBody UserBO userBO,
+                            HttpServletRequest request,
+                            HttpServletResponse response) {
 
         String username = userBO.getUsername();
         String password = userBO.getPassword();
@@ -98,7 +111,20 @@ public class PassportController {
             return JsonResult.errorMsg("用户名或密码不正确");
         }
 
+        setNullProperty(userResult);
+
+        CookieUtils.setCookie(request, response, "user", JsonUtils.objectToJson(userResult), true);
+
         return JsonResult.ok(userResult);
+    }
+
+    private void setNullProperty(Users userResult) {
+        userResult.setPassword(null);
+        userResult.setMobile(null);
+        userResult.setEmail(null);
+        userResult.setCreatedTime(null);
+        userResult.setUpdatedTime(null);
+        userResult.setBirthday(null);
     }
 }
 

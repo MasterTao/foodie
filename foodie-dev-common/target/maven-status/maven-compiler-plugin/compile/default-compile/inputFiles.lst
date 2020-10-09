@@ -3,6 +3,7 @@
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/org/n3r/idworker/strategy/DayPrefixRandomCodeStrategy.java
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/org/n3r/idworker/RandomCodeStrategy.java
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/org/n3r/idworker/Id.java
+/Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/com/monkey/utils/JsonUtils.java
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/org/n3r/idworker/Code.java
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/org/n3r/idworker/utils/Utils.java
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/com/monkey/utils/DateUtil.java
@@ -15,6 +16,7 @@
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/org/n3r/idworker/utils/HttpReq.java
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/org/n3r/idworker/Sid.java
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/org/n3r/idworker/strategy/FileLock.java
+/Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/com/monkey/utils/CookieUtils.java
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/com/monkey/utils/JsonResult.java
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/org/n3r/idworker/Test.java
 /Users/tao/WorkSpace/JavaProject/foodie-dev/foodie-dev-common/src/main/java/org/n3r/idworker/strategy/DefaultRandomCodeStrategy.java

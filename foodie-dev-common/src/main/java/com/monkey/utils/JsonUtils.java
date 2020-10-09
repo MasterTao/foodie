@@ -1,4 +1,4 @@
-package org.alanhou.utils;
+package com.monkey.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
