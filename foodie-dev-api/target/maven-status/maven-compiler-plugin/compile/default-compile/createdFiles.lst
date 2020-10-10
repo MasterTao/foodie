@@ -1,5 +1,0 @@
-com/monkey/Application.class
-com/monkey/config/CorsConfig.class
-com/monkey/controller/HelloController.class
-com/monkey/config/Swagger2.class
-com/monkey/controller/PassportController.class
