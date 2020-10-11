@@ -5,15 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b83277fd-807c-4daf-aaab-f168fcf6bc0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/foodie-dev-mapper/src/main/java/com/monkey/mapper/CategoryMapperCustom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-dev-mapper/src/main/resources/mapper/CategoryMapperCustom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-dev-pojo/src/main/java/com/monkey/pojo/vo/CategoryVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-dev-pojo/src/main/java/com/monkey/pojo/vo/SubCategoryVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie-dev-api/src/main/java/com/monkey/controller/ItemsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie-dev-pojo/src/main/java/com/monkey/pojo/vo/ItemInfoVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie-dev-pojo/src/main/java/com/monkey/pojo/vo/NewItemsVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie-dev-pojo/src/main/java/com/monkey/pojo/vo/SimpleItemVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/ItemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/impl/ItemServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/foodie-dev-api/src/main/java/com/monkey/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-dev-api/src/main/java/com/monkey/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/impl/CarouselServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/impl/CarouselServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie-dev-mapper/src/main/java/com/monkey/mapper/CategoryMapperCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-dev-mapper/src/main/java/com/monkey/mapper/CategoryMapperCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie-dev-mapper/src/main/resources/mapper/CategoryMapperCustom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-dev-mapper/src/main/resources/mapper/CategoryMapperCustom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie-dev-mapper/src/main/resources/mapper/ItemsParamMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-dev-mapper/src/main/resources/mapper/ItemsParamMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie-dev-pojo/src/main/java/com/monkey/pojo/ItemsParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-dev-pojo/src/main/java/com/monkey/pojo/ItemsParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,15 +70,15 @@
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.monkey.pojo.vo" />
+      <recent name="com.monkey.controller" />
       <recent name="com.monkey.mapper" />
       <recent name="com.monkey.service" />
       <recent name="com.monkey.enums" />
-      <recent name="com.monkey.controller" />
-      <recent name="com.monkey.utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/foodie-dev-mapper/src/main/resources/mapper" />
@@ -126,7 +131,7 @@
       <workItem from="1601601797477" duration="2285000" />
       <workItem from="1602041933239" duration="29019000" />
       <workItem from="1602226684734" duration="11761000" />
-      <workItem from="1602312153524" duration="4773000" />
+      <workItem from="1602312153524" duration="11633000" />
     </task>
     <servers />
   </component>
@@ -138,62 +143,71 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602316838214" />
-    <state x="653" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1602318526017">
+    <state x="653" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1602386747961">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="653" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602318526017" />
-    <state width="1636" height="209" key="GridCell.Tab.0.bottom" timestamp="1602319034360">
+    <state x="653" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602321101303" />
+    <state x="653" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1602386747961" />
+    <state width="1636" height="209" key="GridCell.Tab.0.bottom" timestamp="1602402073572">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1636" height="209" key="GridCell.Tab.0.bottom/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602319034360" />
-    <state width="1636" height="187" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1602150133232" />
+    <state width="1636" height="209" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1602402073572" />
     <state width="1636" height="209" key="GridCell.Tab.0.bottom/0.23.1680.1027/-1920.23.1920.1057@0.23.1680.1027" timestamp="1602313770184" />
-    <state width="1636" height="209" key="GridCell.Tab.0.center" timestamp="1602319034359">
+    <state width="1636" height="209" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1602378598216" />
+    <state width="1636" height="209" key="GridCell.Tab.0.center" timestamp="1602402073571">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1636" height="209" key="GridCell.Tab.0.center/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602319034359" />
-    <state width="1636" height="187" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1602150133230" />
+    <state width="1636" height="209" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1602402073571" />
     <state width="1636" height="209" key="GridCell.Tab.0.center/0.23.1680.1027/-1920.23.1920.1057@0.23.1680.1027" timestamp="1602313770183" />
-    <state width="1636" height="209" key="GridCell.Tab.0.left" timestamp="1602319034358">
+    <state width="1636" height="209" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1602378598216" />
+    <state width="1636" height="209" key="GridCell.Tab.0.left" timestamp="1602402073570">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1636" height="209" key="GridCell.Tab.0.left/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602319034358" />
-    <state width="1636" height="187" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1602150133229" />
+    <state width="1636" height="209" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1602402073570" />
     <state width="1636" height="209" key="GridCell.Tab.0.left/0.23.1680.1027/-1920.23.1920.1057@0.23.1680.1027" timestamp="1602313770182" />
-    <state width="1636" height="209" key="GridCell.Tab.0.right" timestamp="1602319034360">
+    <state width="1636" height="209" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1602378598215" />
+    <state width="1636" height="209" key="GridCell.Tab.0.right" timestamp="1602402073572">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1636" height="209" key="GridCell.Tab.0.right/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602319034360" />
-    <state width="1636" height="187" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1602150133231" />
+    <state width="1636" height="209" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1602402073572" />
     <state width="1636" height="209" key="GridCell.Tab.0.right/0.23.1680.1027/-1920.23.1920.1057@0.23.1680.1027" timestamp="1602313770183" />
-    <state width="1636" height="209" key="GridCell.Tab.1.bottom" timestamp="1602319034363">
+    <state width="1636" height="209" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1602378598216" />
+    <state width="1636" height="209" key="GridCell.Tab.1.bottom" timestamp="1602401961066">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1636" height="209" key="GridCell.Tab.1.bottom/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602319034363" />
-    <state width="1636" height="187" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1602150133234" />
-    <state width="1636" height="209" key="GridCell.Tab.1.center" timestamp="1602319034362">
+    <state width="1636" height="209" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1602401961066" />
+    <state width="1636" height="209" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1602378598212" />
+    <state width="1636" height="209" key="GridCell.Tab.1.center" timestamp="1602401961065">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1636" height="209" key="GridCell.Tab.1.center/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602319034362" />
-    <state width="1636" height="187" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1602150133233" />
-    <state width="1636" height="209" key="GridCell.Tab.1.left" timestamp="1602319034361">
+    <state width="1636" height="209" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1602401961065" />
+    <state width="1636" height="209" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1602378598212" />
+    <state width="1636" height="209" key="GridCell.Tab.1.left" timestamp="1602401961065">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1636" height="209" key="GridCell.Tab.1.left/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602319034361" />
-    <state width="1636" height="187" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1602150133232" />
-    <state width="1636" height="209" key="GridCell.Tab.1.right" timestamp="1602319034362">
+    <state width="1636" height="209" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1602401961065" />
+    <state width="1636" height="209" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1602378598211" />
+    <state width="1636" height="209" key="GridCell.Tab.1.right" timestamp="1602401961066">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1636" height="209" key="GridCell.Tab.1.right/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602319034362" />
-    <state width="1636" height="187" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1602150133233" />
+    <state width="1636" height="209" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1602401961066" />
+    <state width="1636" height="209" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1602378598212" />
     <state x="530" y="151" key="RollbackChangesDialog" timestamp="1602243663481">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="530" y="151" key="RollbackChangesDialog/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602243663481" />
-    <state x="328" y="106" key="SettingsEditor" timestamp="1602312141702">
+    <state x="328" y="106" key="SettingsEditor" timestamp="1602321792991">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="328" y="106" key="SettingsEditor/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602312141702" />
+    <state x="328" y="106" key="SettingsEditor/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602321792991" />
     <state x="328" y="106" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1601818899640" />
     <state x="627" y="310" key="chooseDestDirectoryDialog" timestamp="1602154805838">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -203,13 +217,17 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="488" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602145600476" />
+    <state x="542" y="264" width="596" height="522" key="find.popup" timestamp="1602402035727">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="542" y="264" width="596" height="522" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602402035727" />
     <state x="262" y="102" key="new project wizard" timestamp="1601818726110">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="262" y="102" key="new project wizard/0.0.1680.1050@0.0.1680.1050" timestamp="1601818726110" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1602316564068">
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1602321280897">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602316564068" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602321280897" />
   </component>
 </project>

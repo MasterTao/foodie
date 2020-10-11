@@ -7,7 +7,6 @@
     <result column="name" property="name" />
     <result column="type" property="type" />
     <result column="fatherId" property="fatherId" />
-
     <collection property="subCatList" ofType="com.monkey.pojo.vo.SubCategoryVO">
       <id column="subId" property="subId" />
       <result column="subName" property="subName" />
@@ -15,7 +14,6 @@
       <result column="subFatherId" property="subFatherId" />
     </collection>
   </resultMap>
-  
   
   <select id="getSubCatList" resultMap="myCategoryVO" parameterType="int">
     select
@@ -31,4 +29,41 @@
       inner join category c on f.id = c.father_id
     where f.father_id = #{rootCatId}
   </select>
+
+  <resultMap id="myNewItemsVO" type="com.monkey.pojo.vo.NewItemsVO">
+    <id column="rootCatId" property="rootCatId" />
+    <result column="rootCatName" property="rootCatName" />
+    <result column="slogan" property="slogan" />
+    <result column="catImage" property="catImage" />
+    <result column="bgColor" property="bgColor" />
+
+    <collection property="simpleItemList" ofType="com.monkey.pojo.vo.SimpleItemVO">
+      <id column="itemId" property="itemId" />
+      <result column="itemName" property="itemName" />
+      <result column="itemUrl" property="itemUrl" />
+    </collection>
+  </resultMap>
+
+  <select id="getSixNewItemsLazy" resultMap="myNewItemsVO" parameterType="Map">
+    select
+      f.id as rootCatId,
+      f.name as rootCatName,
+      f.slogan as slogan,
+      f.cat_image as catImage,
+      f.bg_color as bgColor,
+      i.id as itemId,
+      i.item_name as itemName,
+      ii.url as itemUrl,
+      i.created_time as createdTime
+    from category f
+      inner join items i on f.id = i.root_cat_id
+      inner join items_img ii on i.id = ii.item_id
+    where f.type = 1
+      and i.root_cat_id = #{paramsMap.rootCatId}
+      and ii.is_main = 1
+    order by i.created_time desc
+    limit 0, 6
+  </select>
+
+
 </mapper>
