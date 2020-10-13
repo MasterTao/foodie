@@ -71,11 +71,11 @@ public class ItemsController extends BaseController {
     public JsonResult comments(
             @ApiParam(name = "itemId", value = "商品id", required = true)
             @RequestParam String itemId,
-            @ApiParam(name = "level", value = "评价等级", required = false)
+            @ApiParam(name = "level", value = "评价等级")
             @RequestParam Integer level,
-            @ApiParam(name = "page", value = "查询下一页的第几页", required = false)
+            @ApiParam(name = "page", value = "查询下一页的第几页")
             @RequestParam Integer page,
-            @ApiParam(name = "pageSize", value = "分页的每一页显示的条数", required = false)
+            @ApiParam(name = "pageSize", value = "分页的每一页显示的条数")
             @RequestParam Integer pageSize) {
         if (StringUtils.isBlank(itemId)) {
             return JsonResult.errorMsg(null);
@@ -98,11 +98,11 @@ public class ItemsController extends BaseController {
     public JsonResult search(
             @ApiParam(name = "keywords", value = "关键字", required = true)
             @RequestParam String keywords,
-            @ApiParam(name = "sort", value = "排序", required = false, allowEmptyValue = true)
+            @ApiParam(name = "sort", value = "排序", allowEmptyValue = true)
             @RequestParam String sort,
-            @ApiParam(name = "page", value = "查询下一页的第几页", required = false, allowEmptyValue = true)
+            @ApiParam(name = "page", value = "查询下一页的第几页", allowEmptyValue = true)
             @RequestParam Integer page,
-            @ApiParam(name = "pageSize", value = "分页的每一页显示的条数", required = false, allowEmptyValue = true)
+            @ApiParam(name = "pageSize", value = "分页的每一页显示的条数", allowEmptyValue = true)
             @RequestParam Integer pageSize) {
 
         if (StringUtils.isBlank(keywords)) {
