@@ -5,6 +5,7 @@ import com.monkey.pojo.Items;
 import com.monkey.pojo.ItemsImg;
 import com.monkey.pojo.ItemsParam;
 import com.monkey.pojo.ItemsSpec;
+import com.monkey.pojo.vo.CommentLevelCountVO;
 
 import java.util.List;
 
@@ -42,5 +43,10 @@ public interface ItemService {
      */
     ItemsParam queryItemParam(String itemId);
 
-
+    /**
+     * 根据商品id查询商品评论数
+     * @param itemId
+     * @return
+     */
+    CommentLevelCountVO queryCommentCounts(String itemId);
 }

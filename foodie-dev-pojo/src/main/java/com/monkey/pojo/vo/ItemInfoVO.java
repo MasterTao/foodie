@@ -19,6 +19,6 @@ public class ItemInfoVO {
 
     private Items items;
     private List<ItemsImg> itemsImgList;
-    ItemsParam itemsParam;
+    ItemsParam itemParam;
     List<ItemsSpec> itemsSpecList;
 }
