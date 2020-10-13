@@ -7,7 +7,9 @@ import com.monkey.mapper.*;
 import com.monkey.pojo.*;
 import com.monkey.pojo.vo.CommentLevelCountVO;
 import com.monkey.pojo.vo.ItemCommentVO;
+import com.monkey.pojo.vo.SearchItemsVO;
 import com.monkey.service.ItemService;
+import com.monkey.utils.DesensitizationUtil;
 import com.monkey.utils.PagedGridResult;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -118,6 +120,10 @@ public class ItemServiceImpl implements ItemService {
         PageHelper.startPage(page, pageSize);
         List<ItemCommentVO> list = itemsMapperCustom.queryItemContents(map);
 
+        for (ItemCommentVO itemCommentVO : list) {
+            itemCommentVO.setNickname(DesensitizationUtil.commonDisplay(itemCommentVO.getNickname()));
+        }
+
         return setterPagedGrid(list, page);
     }
 
@@ -129,5 +135,19 @@ public class ItemServiceImpl implements ItemService {
         pagedGridResult.setTotal(pageList.getPages());
         pagedGridResult.setRecords(pageList.getTotal());
         return pagedGridResult;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public PagedGridResult searchItems(String keywords, String sort, Integer page, Integer pageSize) {
+
+        Map<String, Object> map = new HashMap<>(2);
+        map.put("keywords", keywords);
+        map.put("sort", sort);
+
+        PageHelper.startPage(page, pageSize);
+        List<SearchItemsVO> searchItemsVOS = itemsMapperCustom.searchItems(map);
+
+        return setterPagedGrid(searchItemsVOS, page);
     }
 }
