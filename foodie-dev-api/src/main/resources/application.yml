@@ -33,4 +33,7 @@ mapper:
   mappers: com.monkey.my.mapper.MyMapper
   not-empty: false
   identity: MYSQL
-
+# 分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  support-methods-arguments: true

@@ -1,17 +1,23 @@
 package com.monkey.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.monkey.enums.CommentLevel;
 import com.monkey.mapper.*;
 import com.monkey.pojo.*;
 import com.monkey.pojo.vo.CommentLevelCountVO;
+import com.monkey.pojo.vo.ItemCommentVO;
 import com.monkey.service.ItemService;
+import com.monkey.utils.PagedGridResult;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author tao
@@ -34,6 +40,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Resource
     private ItemsCommentsMapper itemsCommentsMapper;
+
+    @Resource
+    private ItemsMapperCustom itemsMapperCustom;
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -95,5 +104,30 @@ public class ItemServiceImpl implements ItemService {
             condition.setCommentLevel(level);
         }
         return itemsCommentsMapper.selectCount(condition);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public PagedGridResult queryPagedComments(String itemId, Integer level, Integer page, Integer pageSize) {
+
+        Map<String, Object> map = new HashMap<>(2);
+        map.put("itemId", itemId);
+        map.put("level", level);
+
+        // mybatis-pagehelper
+        PageHelper.startPage(page, pageSize);
+        List<ItemCommentVO> list = itemsMapperCustom.queryItemContents(map);
+
+        return setterPagedGrid(list, page);
+    }
+
+    private PagedGridResult setterPagedGrid(List<?> list, Integer page) {
+        PageInfo<?> pageList = new PageInfo<>(list);
+        PagedGridResult pagedGridResult = new PagedGridResult();
+        pagedGridResult.setPage(page);
+        pagedGridResult.setRows(list);
+        pagedGridResult.setTotal(pageList.getPages());
+        pagedGridResult.setRecords(pageList.getTotal());
+        return pagedGridResult;
     }
 }
