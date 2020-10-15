@@ -148,4 +148,19 @@ public class ItemsController extends BaseController {
         PagedGridResult pagedGridResult = itemService.searchItemsByThirdCat(catId, sort, page, pageSize);
         return JsonResult.ok(pagedGridResult);
     }
+
+    @ApiOperation(value = "根据商品规格ids查找最新的商品数据", notes = "根据商品规格ids查找最新的商品数据", httpMethod = "GET")
+    @GetMapping("/refresh")
+    public JsonResult refresh(
+            @ApiParam(name = "itemSpecIds", value = "拼接的规格ids", required = true, example = "1001,1003,1005")
+            @RequestParam String itemSpecIds) {
+
+        if (StringUtils.isBlank(itemSpecIds)) {
+            return JsonResult.ok();
+        }
+
+        List<ItemsSpec> itemsSpecList = itemService.queryItemSpecList(itemSpecIds);
+
+        return JsonResult.ok(itemsSpecList);
+    }
 }

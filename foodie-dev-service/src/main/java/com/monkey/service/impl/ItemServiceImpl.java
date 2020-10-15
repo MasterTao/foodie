@@ -8,6 +8,7 @@ import com.monkey.pojo.*;
 import com.monkey.pojo.vo.CommentLevelCountVO;
 import com.monkey.pojo.vo.ItemCommentVO;
 import com.monkey.pojo.vo.SearchItemsVO;
+import com.monkey.pojo.vo.ShopCartVO;
 import com.monkey.service.ItemService;
 import com.monkey.utils.DesensitizationUtil;
 import com.monkey.utils.PagedGridResult;
@@ -17,9 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author tao
@@ -162,5 +161,16 @@ public class ItemServiceImpl implements ItemService {
         List<SearchItemsVO> searchItemsVOS = itemsMapperCustom.searchItemsByThirdCat(map);
 
         return setterPagedGrid(searchItemsVOS, page);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<ShopCartVO> queryItemsBySpecIds(String specIds) {
+
+        String[] ids = specIds.split(",");
+        List<String> specIdsList = new ArrayList<>();
+        Collections.addAll(specIdsList, ids);
+
+        return itemsMapperCustom.queryItemsBySpecIds(specIdsList);
     }
 }

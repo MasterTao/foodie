@@ -87,4 +87,25 @@
       </otherwise>
     </choose>
   </select>
+
+
+  <select id="queryItemsBySpecIds" parameterType="List" resultType="com.monkey.pojo.vo.ShopCartVO">
+    select
+      t_items.id as itemId,
+      t_items.item_name as itemName,
+      ii.url as itemImgUrl,
+      t_items_spec.id as specId,
+      t_items_spec.name as specName,
+      t_items_spec.price_discount as priceDiscount,
+      t_items_spec.price_normal as priceNormal
+    from items_spec t_items_spec
+      inner join items t_items on t_items_spec.item_id = t_items.id
+      inner join items_img ii on t_items.id = ii.item_id
+    where ii.is_main = 1
+      and t_items_spec.id in
+        <foreach collection="paramsList" index="index" item="specId" open="(" close=")" separator=",">
+          #{specId}
+        </foreach>
+  </select>
+
 </mapper>
