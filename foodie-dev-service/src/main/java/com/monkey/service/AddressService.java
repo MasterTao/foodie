@@ -1,6 +1,7 @@
 package com.monkey.service;
 
 import com.monkey.pojo.UserAddress;
+import com.monkey.pojo.bo.AddressBO;
 
 import java.util.List;
 
@@ -16,4 +17,10 @@ public interface AddressService {
      * @return
      */
     List<UserAddress> queryAll(String userId);
+
+    /**
+     * 用户新增地址
+     * @param addressBO
+     */
+    void addNewUserAddress(AddressBO addressBO);
 }
