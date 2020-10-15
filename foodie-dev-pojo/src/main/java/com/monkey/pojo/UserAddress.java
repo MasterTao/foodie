@@ -1,557 +1,290 @@
 package com.monkey.pojo;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Date;
 
 @Table(name = "user_address")
 public class UserAddress {
+    /**
+     * 地址主键id
+     */
     @Id
-    @Column(name = "address_id")
-    private Integer addressId;
+    private String id;
 
     /**
-     * SHIPPING, BILLING
+     * 关联用户id
      */
-    @Column(name = "address_type")
-    private String addressType;
-
-    @Column(name = "address_name")
-    private String addressName;
-
     @Column(name = "user_id")
-    private Integer userId;
-
-    private String consignee;
-
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
+    private String userId;
 
     /**
-     * 性别
+     * 收件人姓名
      */
-    private String gender;
+    private String receiver;
 
-    private String email;
-
-    private Short country;
-
-    private Short province;
-
-    private Short city;
-
-    private Short district;
-
-    private String address;
-
-    private String zipcode;
-
-    private String tel;
-
+    /**
+     * 收件人手机号
+     */
     private String mobile;
 
-    @Column(name = "sign_building")
-    private String signBuilding;
-
-    @Column(name = "best_time")
-    private String bestTime;
-
     /**
-     * 省/直辖市，输入
+     * 省份
      */
-    @Column(name = "province_text")
-    private String provinceText;
+    private String province;
 
     /**
-     * 市/区，输入
+     * 城市
      */
-    @Column(name = "city_text")
-    private String cityText;
+    private String city;
 
     /**
-     * 县/区，输入
+     * 区县
      */
-    @Column(name = "district_text")
-    private String districtText;
+    private String district;
 
     /**
-     * 是否是默认配送地址
+     * 详细地址
+     */
+    private String detail;
+
+    /**
+     * 扩展字段
+     */
+    private String extend;
+
+    /**
+     * 是否默认地址 1:是  0:否
      */
     @Column(name = "is_default")
-    private Boolean isDefault;
+    private Integer isDefault;
 
     /**
-     * CPF or CNPJ code type
+     * 创建时间
      */
-    @Column(name = "tax_code_type")
-    private Boolean taxCodeType;
+    @Column(name = "created_time")
+    private Date createdTime;
 
     /**
-     * CPF or CNPJ code value
+     * 更新时间
      */
-    @Column(name = "tax_code_value")
-    private String taxCodeValue;
+    @Column(name = "updated_time")
+    private Date updatedTime;
 
     /**
-     * 南美suburb
-     */
-    private String suburb;
-
-    private String area;
-
-    @Column(name = "nearest_landmark")
-    private String nearestLandmark;
-
-    /**
-     * HOME,BUSINESS
-     */
-    @Column(name = "location_type")
-    private String locationType;
-
-    /**
-     * @return address_id
-     */
-    public Integer getAddressId() {
-        return addressId;
-    }
-
-    /**
-     * @param addressId
-     */
-    public void setAddressId(Integer addressId) {
-        this.addressId = addressId;
-    }
-
-    /**
-     * 获取SHIPPING, BILLING
+     * 获取地址主键id
      *
-     * @return address_type - SHIPPING, BILLING
+     * @return id - 地址主键id
      */
-    public String getAddressType() {
-        return addressType;
+    public String getId() {
+        return id;
     }
 
     /**
-     * 设置SHIPPING, BILLING
+     * 设置地址主键id
      *
-     * @param addressType SHIPPING, BILLING
+     * @param id 地址主键id
      */
-    public void setAddressType(String addressType) {
-        this.addressType = addressType;
+    public void setId(String id) {
+        this.id = id;
     }
 
     /**
-     * @return address_name
+     * 获取关联用户id
+     *
+     * @return user_id - 关联用户id
      */
-    public String getAddressName() {
-        return addressName;
-    }
-
-    /**
-     * @param addressName
-     */
-    public void setAddressName(String addressName) {
-        this.addressName = addressName;
-    }
-
-    /**
-     * @return user_id
-     */
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
     /**
-     * @param userId
+     * 设置关联用户id
+     *
+     * @param userId 关联用户id
      */
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
     /**
-     * @return consignee
-     */
-    public String getConsignee() {
-        return consignee;
-    }
-
-    /**
-     * @param consignee
-     */
-    public void setConsignee(String consignee) {
-        this.consignee = consignee;
-    }
-
-    /**
-     * @return first_name
-     */
-    public String getFirstName() {
-        return firstName;
-    }
-
-    /**
-     * @param firstName
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    /**
-     * @return last_name
-     */
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
-     * @param lastName
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    /**
-     * 获取性别
+     * 获取收件人姓名
      *
-     * @return gender - 性别
+     * @return receiver - 收件人姓名
      */
-    public String getGender() {
-        return gender;
+    public String getReceiver() {
+        return receiver;
     }
 
     /**
-     * 设置性别
+     * 设置收件人姓名
      *
-     * @param gender 性别
+     * @param receiver 收件人姓名
      */
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
     }
 
     /**
-     * @return email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * @return country
-     */
-    public Short getCountry() {
-        return country;
-    }
-
-    /**
-     * @param country
-     */
-    public void setCountry(Short country) {
-        this.country = country;
-    }
-
-    /**
-     * @return province
-     */
-    public Short getProvince() {
-        return province;
-    }
-
-    /**
-     * @param province
-     */
-    public void setProvince(Short province) {
-        this.province = province;
-    }
-
-    /**
-     * @return city
-     */
-    public Short getCity() {
-        return city;
-    }
-
-    /**
-     * @param city
-     */
-    public void setCity(Short city) {
-        this.city = city;
-    }
-
-    /**
-     * @return district
-     */
-    public Short getDistrict() {
-        return district;
-    }
-
-    /**
-     * @param district
-     */
-    public void setDistrict(Short district) {
-        this.district = district;
-    }
-
-    /**
-     * @return address
-     */
-    public String getAddress() {
-        return address;
-    }
-
-    /**
-     * @param address
-     */
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    /**
-     * @return zipcode
-     */
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    /**
-     * @param zipcode
-     */
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
-    }
-
-    /**
-     * @return tel
-     */
-    public String getTel() {
-        return tel;
-    }
-
-    /**
-     * @param tel
-     */
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
-    /**
-     * @return mobile
+     * 获取收件人手机号
+     *
+     * @return mobile - 收件人手机号
      */
     public String getMobile() {
         return mobile;
     }
 
     /**
-     * @param mobile
+     * 设置收件人手机号
+     *
+     * @param mobile 收件人手机号
      */
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
     /**
-     * @return sign_building
-     */
-    public String getSignBuilding() {
-        return signBuilding;
-    }
-
-    /**
-     * @param signBuilding
-     */
-    public void setSignBuilding(String signBuilding) {
-        this.signBuilding = signBuilding;
-    }
-
-    /**
-     * @return best_time
-     */
-    public String getBestTime() {
-        return bestTime;
-    }
-
-    /**
-     * @param bestTime
-     */
-    public void setBestTime(String bestTime) {
-        this.bestTime = bestTime;
-    }
-
-    /**
-     * 获取省/直辖市，输入
+     * 获取省份
      *
-     * @return province_text - 省/直辖市，输入
+     * @return province - 省份
      */
-    public String getProvinceText() {
-        return provinceText;
+    public String getProvince() {
+        return province;
     }
 
     /**
-     * 设置省/直辖市，输入
+     * 设置省份
      *
-     * @param provinceText 省/直辖市，输入
+     * @param province 省份
      */
-    public void setProvinceText(String provinceText) {
-        this.provinceText = provinceText;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     /**
-     * 获取市/区，输入
+     * 获取城市
      *
-     * @return city_text - 市/区，输入
+     * @return city - 城市
      */
-    public String getCityText() {
-        return cityText;
+    public String getCity() {
+        return city;
     }
 
     /**
-     * 设置市/区，输入
+     * 设置城市
      *
-     * @param cityText 市/区，输入
+     * @param city 城市
      */
-    public void setCityText(String cityText) {
-        this.cityText = cityText;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     /**
-     * 获取县/区，输入
+     * 获取区县
      *
-     * @return district_text - 县/区，输入
+     * @return district - 区县
      */
-    public String getDistrictText() {
-        return districtText;
+    public String getDistrict() {
+        return district;
     }
 
     /**
-     * 设置县/区，输入
+     * 设置区县
      *
-     * @param districtText 县/区，输入
+     * @param district 区县
      */
-    public void setDistrictText(String districtText) {
-        this.districtText = districtText;
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     /**
-     * 获取是否是默认配送地址
+     * 获取详细地址
      *
-     * @return is_default - 是否是默认配送地址
+     * @return detail - 详细地址
      */
-    public Boolean getIsDefault() {
+    public String getDetail() {
+        return detail;
+    }
+
+    /**
+     * 设置详细地址
+     *
+     * @param detail 详细地址
+     */
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    /**
+     * 获取扩展字段
+     *
+     * @return extend - 扩展字段
+     */
+    public String getExtend() {
+        return extend;
+    }
+
+    /**
+     * 设置扩展字段
+     *
+     * @param extend 扩展字段
+     */
+    public void setExtend(String extend) {
+        this.extend = extend;
+    }
+
+    /**
+     * 获取是否默认地址 1:是  0:否
+     *
+     * @return is_default - 是否默认地址 1:是  0:否
+     */
+    public Integer getIsDefault() {
         return isDefault;
     }
 
     /**
-     * 设置是否是默认配送地址
+     * 设置是否默认地址 1:是  0:否
      *
-     * @param isDefault 是否是默认配送地址
+     * @param isDefault 是否默认地址 1:是  0:否
      */
-    public void setIsDefault(Boolean isDefault) {
+    public void setIsDefault(Integer isDefault) {
         this.isDefault = isDefault;
     }
 
     /**
-     * 获取CPF or CNPJ code type
+     * 获取创建时间
      *
-     * @return tax_code_type - CPF or CNPJ code type
+     * @return created_time - 创建时间
      */
-    public Boolean getTaxCodeType() {
-        return taxCodeType;
+    public Date getCreatedTime() {
+        return createdTime;
     }
 
     /**
-     * 设置CPF or CNPJ code type
+     * 设置创建时间
      *
-     * @param taxCodeType CPF or CNPJ code type
+     * @param createdTime 创建时间
      */
-    public void setTaxCodeType(Boolean taxCodeType) {
-        this.taxCodeType = taxCodeType;
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
     }
 
     /**
-     * 获取CPF or CNPJ code value
+     * 获取更新时间
      *
-     * @return tax_code_value - CPF or CNPJ code value
+     * @return updated_time - 更新时间
      */
-    public String getTaxCodeValue() {
-        return taxCodeValue;
+    public Date getUpdatedTime() {
+        return updatedTime;
     }
 
     /**
-     * 设置CPF or CNPJ code value
+     * 设置更新时间
      *
-     * @param taxCodeValue CPF or CNPJ code value
+     * @param updatedTime 更新时间
      */
-    public void setTaxCodeValue(String taxCodeValue) {
-        this.taxCodeValue = taxCodeValue;
-    }
-
-    /**
-     * 获取南美suburb
-     *
-     * @return suburb - 南美suburb
-     */
-    public String getSuburb() {
-        return suburb;
-    }
-
-    /**
-     * 设置南美suburb
-     *
-     * @param suburb 南美suburb
-     */
-    public void setSuburb(String suburb) {
-        this.suburb = suburb;
-    }
-
-    /**
-     * @return area
-     */
-    public String getArea() {
-        return area;
-    }
-
-    /**
-     * @param area
-     */
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    /**
-     * @return nearest_landmark
-     */
-    public String getNearestLandmark() {
-        return nearestLandmark;
-    }
-
-    /**
-     * @param nearestLandmark
-     */
-    public void setNearestLandmark(String nearestLandmark) {
-        this.nearestLandmark = nearestLandmark;
-    }
-
-    /**
-     * 获取HOME,BUSINESS
-     *
-     * @return location_type - HOME,BUSINESS
-     */
-    public String getLocationType() {
-        return locationType;
-    }
-
-    /**
-     * 设置HOME,BUSINESS
-     *
-     * @param locationType HOME,BUSINESS
-     */
-    public void setLocationType(String locationType) {
-        this.locationType = locationType;
+    public void setUpdatedTime(Date updatedTime) {
+        this.updatedTime = updatedTime;
     }
 }
