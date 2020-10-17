@@ -4,6 +4,7 @@
 # IDEA artifacts and output dirs
 *.iml
 .idea
+.idea/workspace.xml
 */target/
 *.log
 */log.*

@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b83277fd-807c-4daf-aaab-f168fcf6bc0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/foodie-dev-common/src/main/java/com/monkey/utils/MobileEmailUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-dev-pojo/src/main/java/com/monkey/pojo/bo/AddressBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/foodie-dev-api/src/main/java/com/monkey/controller/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-dev-api/src/main/java/com/monkey/controller/AddressController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/AddressService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/impl/AddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-dev-service/src/main/java/com/monkey/service/impl/AddressServiceImpl.java" afterDir="false" />
@@ -134,7 +132,7 @@
       <workItem from="1601601797477" duration="2285000" />
       <workItem from="1602041933239" duration="29019000" />
       <workItem from="1602226684734" duration="11761000" />
-      <workItem from="1602312153524" duration="41906000" />
+      <workItem from="1602312153524" duration="44409000" />
     </task>
     <servers />
   </component>
@@ -146,10 +144,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602316838214" />
-    <state x="653" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1602768647494">
+    <state x="653" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1602917109721">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="653" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602768647494" />
+    <state x="653" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602917109721" />
     <state x="653" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1602402876394" />
     <state x="656" y="135" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602402431152">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -224,10 +222,10 @@
     </state>
     <state x="328" y="106" key="SettingsEditor/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602746387073" />
     <state x="328" y="106" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1601818899640" />
-    <state width="500" height="496" key="SwitcherDM" timestamp="1602768597516">
+    <state width="500" height="496" key="SwitcherDM" timestamp="1602917394365">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="500" height="496" key="SwitcherDM/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602768597516" />
+    <state width="500" height="496" key="SwitcherDM/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1602917394365" />
     <state x="627" y="310" key="chooseDestDirectoryDialog" timestamp="1602154805838">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
