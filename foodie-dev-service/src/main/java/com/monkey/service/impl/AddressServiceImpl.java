@@ -1,5 +1,6 @@
 package com.monkey.service.impl;
 
+import com.monkey.enums.YesOrNo;
 import com.monkey.mapper.UserAddressMapper;
 import com.monkey.pojo.UserAddress;
 import com.monkey.pojo.bo.AddressBO;
@@ -81,5 +82,26 @@ public class AddressServiceImpl implements AddressService {
         userAddress.setUserId(userId);
 
         userAddressMapper.delete(userAddress);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    @Override
+    public void updateUserAddressToBeDefault(String userId, String addressId) {
+        // 1. 查找默认地址，设置为不默认
+        UserAddress queryAddress = new UserAddress();
+        queryAddress.setUserId(userId);
+        queryAddress.setIsDefault(YesOrNo.YES.type);
+        List<UserAddress> list = userAddressMapper.select(queryAddress);
+        for (UserAddress userAddress : list) {
+            userAddress.setIsDefault(YesOrNo.NO.type);
+            userAddressMapper.updateByPrimaryKeySelective(userAddress);
+        }
+
+        // 2. 根据地址id修改为默认的地址
+        UserAddress defaultUserAddress = new UserAddress();
+        defaultUserAddress.setId(addressId);
+        defaultUserAddress.setUserId(userId);
+        defaultUserAddress.setIsDefault(YesOrNo.YES.type);
+        userAddressMapper.updateByPrimaryKeySelective(defaultUserAddress);
     }
 }
