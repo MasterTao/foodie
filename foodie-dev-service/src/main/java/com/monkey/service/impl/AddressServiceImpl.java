@@ -104,4 +104,13 @@ public class AddressServiceImpl implements AddressService {
         defaultUserAddress.setIsDefault(YesOrNo.YES.type);
         userAddressMapper.updateByPrimaryKeySelective(defaultUserAddress);
     }
+
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
+    @Override
+    public UserAddress queryUserAddress(String userId, String addressId) {
+        UserAddress userAddress = new UserAddress();
+        userAddress.setUserId(userId);
+        userAddress.setId(addressId);
+        return userAddressMapper.selectOne(userAddress);
+    }
 }

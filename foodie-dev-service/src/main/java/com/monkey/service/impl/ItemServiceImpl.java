@@ -3,6 +3,7 @@ package com.monkey.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.monkey.enums.CommentLevel;
+import com.monkey.enums.YesOrNo;
 import com.monkey.mapper.*;
 import com.monkey.pojo.*;
 import com.monkey.pojo.vo.CommentLevelCountVO;
@@ -172,5 +173,34 @@ public class ItemServiceImpl implements ItemService {
         Collections.addAll(specIdsList, ids);
 
         return itemsMapperCustom.queryItemsBySpecIds(specIdsList);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public ItemsSpec queryItemSpecById(String specId) {
+        return itemsSpecMapper.selectByPrimaryKey(specId);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public String queryItemMainImgById(String itemId) {
+        ItemsImg itemsImg = new ItemsImg();
+        itemsImg.setItemId(itemId);
+        itemsImg.setIsMain(YesOrNo.YES.type);
+
+        ItemsImg result = itemsImgMapper.selectOne(itemsImg);
+        return result != null ? result.getUrl() : "";
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    @Override
+    public void decreaseItemSpecStock(String specId, int buyCounts) {
+        // 1. 查询库存
+        // 2. 判断库存，是否能够减少到0以下
+
+        int result = itemsMapperCustom.decreaseItemSpecStock(specId, buyCounts);
+        if (result != 1) {
+            throw new RuntimeException("订单创建失败，原因：库存不足！");
+        }
     }
 }
