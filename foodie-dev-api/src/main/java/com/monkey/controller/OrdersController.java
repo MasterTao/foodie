@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 @Api(value = "订单相关", tags = {"订单相关的api接口"})
 @RestController
 @RequestMapping("orders")
-public class OrdersController {
+public class OrdersController extends BaseController {
 
     @Resource
     private OrderService orderService;

@@ -6,6 +6,7 @@ import com.monkey.pojo.ItemsParam;
 import com.monkey.pojo.ItemsSpec;
 import com.monkey.pojo.vo.CommentLevelCountVO;
 import com.monkey.pojo.vo.ItemInfoVO;
+import com.monkey.pojo.vo.ShopCartVO;
 import com.monkey.service.ItemService;
 import com.monkey.utils.JsonResult;
 import com.monkey.utils.PagedGridResult;
@@ -45,10 +46,10 @@ public class ItemsController extends BaseController {
         List<ItemsSpec> itemsSpecList = itemService.queryItemSpecList(itemId);
 
         ItemInfoVO itemInfoVO = new ItemInfoVO();
-        itemInfoVO.setItems(items);
-        itemInfoVO.setItemsImgList(itemsImgList);
-        itemInfoVO.setItemParam(itemsParam);
-        itemInfoVO.setItemsSpecList(itemsSpecList);
+        itemInfoVO.setItem(items);
+        itemInfoVO.setItemImgList(itemsImgList);
+        itemInfoVO.setItemParams(itemsParam);
+        itemInfoVO.setItemSpecList(itemsSpecList);
 
         return JsonResult.ok(itemInfoVO);
     }
@@ -159,8 +160,8 @@ public class ItemsController extends BaseController {
             return JsonResult.ok();
         }
 
-        List<ItemsSpec> itemsSpecList = itemService.queryItemSpecList(itemSpecIds);
+        List<ShopCartVO> shopCartVOS = itemService.queryItemsBySpecIds(itemSpecIds);
 
-        return JsonResult.ok(itemsSpecList);
+        return JsonResult.ok(shopCartVOS);
     }
 }

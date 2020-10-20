@@ -26,7 +26,7 @@ import java.util.List;
 @Api(value = "首页", tags = {"首页展示的相关接口"})
 @RequestMapping("index")
 @RestController
-public class IndexController {
+public class IndexController extends BaseController {
 
     @Resource
     private CarouselService carouselService;

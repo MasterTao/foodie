@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 @Api(value = "注册登录", tags = {"用于注册登录的相关接口"})
 @RestController
 @RequestMapping("passport")
-public class PassportController {
+public class PassportController extends BaseController {
 
     @Resource
     private UserService userService;
@@ -47,7 +47,7 @@ public class PassportController {
     }
 
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
-    @PostMapping("/register")
+    @PostMapping("/regist")
     public JsonResult register(@RequestBody UserBO userBO,
                                HttpServletRequest request,
                                HttpServletResponse response) {
