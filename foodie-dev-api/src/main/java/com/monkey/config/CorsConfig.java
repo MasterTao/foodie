@@ -1,16 +1,15 @@
 package com.monkey.config;
 
-import org.springframework.web.filter.CorsFilter;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 /**
  * @author tao
  * @date 2020/10/9 1:06 下午
  */
-@Configuration
+//@Configuration
 public class CorsConfig {
 
     public CorsConfig() {
@@ -31,6 +30,8 @@ public class CorsConfig {
 
         // 设置允许的header
         config.addAllowedHeader("*");
+
+        config.setAllowCredentials(true);
 
         // 2. 为url添加映射路径
         UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
