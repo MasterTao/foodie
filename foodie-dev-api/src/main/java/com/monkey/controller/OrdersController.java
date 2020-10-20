@@ -2,6 +2,7 @@ package com.monkey.controller;
 
 import com.monkey.enums.PayMethod;
 import com.monkey.pojo.bo.SubmitOrderBO;
+import com.monkey.service.OrderService;
 import com.monkey.utils.JsonResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author tao
@@ -19,6 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("orders")
 public class OrdersController {
 
+    @Resource
+    private OrderService orderService;
+
     @ApiOperation(value = "用户下单", notes = "用户下单", httpMethod = "POST")
     @PostMapping("/create")
     public JsonResult list(@RequestBody SubmitOrderBO submitOrderBO) {
@@ -28,8 +34,9 @@ public class OrdersController {
             return JsonResult.errorMsg("支付方式不支持");
         }
 
-
         // 1. 创建订单
+        orderService.createOrder(submitOrderBO);
+
         // 2. 创建订单以后，移除购物车中已结算（已提交）的商品
         // 3. 向支付中心发送当前订单，用于保存支付中心的订单数据
 
