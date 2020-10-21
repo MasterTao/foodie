@@ -45,7 +45,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
-    public void createOrder(SubmitOrderBO submitOrderBO) {
+    public String createOrder(SubmitOrderBO submitOrderBO) {
         String userId = submitOrderBO.getUserId();
         String addressId = submitOrderBO.getAddressId();
         String itemSpecIds = submitOrderBO.getItemSpecIds();
@@ -75,7 +75,7 @@ public class OrderServiceImpl implements OrderService {
         newOrder.setPayMethod(payMethod);
         newOrder.setLeftMsg(leftMsg);
         newOrder.setIsComment(YesOrNo.NO.type);
-        newOrder.setIsComment(YesOrNo.NO.type);
+        newOrder.setIsDelete(YesOrNo.NO.type);
         newOrder.setCreatedTime(new Date());
         newOrder.setUpdatedTime(newOrder.getCreatedTime());
 
@@ -130,5 +130,19 @@ public class OrderServiceImpl implements OrderService {
         waitPayOrderStatus.setCreatedTime(newOrder.getCreatedTime());
 
         orderStatusMapper.insert(waitPayOrderStatus);
+
+        return orderId;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    @Override
+    public void updateOrderStatus(String orderId, Integer orderStatus) {
+        OrderStatus paidStatus = new OrderStatus();
+
+        paidStatus.setOrderId(orderId);
+        paidStatus.setOrderStatus(orderStatus);
+        paidStatus.setPayTime(new Date());
+
+        orderStatusMapper.updateByPrimaryKeySelective(paidStatus);
     }
 }
