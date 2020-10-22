@@ -1,6 +1,7 @@
 package com.monkey.service;
 
 import com.monkey.pojo.bo.SubmitOrderBO;
+import com.monkey.pojo.vo.OrderVO;
 
 /**
  * @author tao
@@ -12,7 +13,7 @@ public interface OrderService {
      * 用于创建订单相关信息
      * @param submitOrderBO
      */
-    String createOrder(SubmitOrderBO submitOrderBO);
+    OrderVO createOrder(SubmitOrderBO submitOrderBO);
 
     /**
      * 修改订单状态

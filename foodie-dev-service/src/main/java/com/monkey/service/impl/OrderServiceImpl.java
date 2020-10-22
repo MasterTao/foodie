@@ -7,6 +7,8 @@ import com.monkey.mapper.OrderStatusMapper;
 import com.monkey.mapper.OrdersMapper;
 import com.monkey.pojo.*;
 import com.monkey.pojo.bo.SubmitOrderBO;
+import com.monkey.pojo.vo.MerchantOrdersVO;
+import com.monkey.pojo.vo.OrderVO;
 import com.monkey.service.AddressService;
 import com.monkey.service.ItemService;
 import com.monkey.service.OrderService;
@@ -45,7 +47,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
-    public String createOrder(SubmitOrderBO submitOrderBO) {
+    public OrderVO createOrder(SubmitOrderBO submitOrderBO) {
         String userId = submitOrderBO.getUserId();
         String addressId = submitOrderBO.getAddressId();
         String itemSpecIds = submitOrderBO.getItemSpecIds();
@@ -131,7 +133,19 @@ public class OrderServiceImpl implements OrderService {
 
         orderStatusMapper.insert(waitPayOrderStatus);
 
-        return orderId;
+        // 4. 构建商户订单，用于传给支付中心
+        MerchantOrdersVO merchantOrderVO = new MerchantOrdersVO();
+        merchantOrderVO.setMerchantOrderId(orderId);
+        merchantOrderVO.setMerchantUserId(userId);
+        merchantOrderVO.setAmount(realPayAmount + postAmount);
+        merchantOrderVO.setPayMethod(payMethod);
+
+        // 5. 构建自定义订单vo
+        OrderVO orderVO = new OrderVO();
+        orderVO.setOrderId(orderId);
+        orderVO.setMerchantOrdersVO(merchantOrderVO);
+
+        return orderVO;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)

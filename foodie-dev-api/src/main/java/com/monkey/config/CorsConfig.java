@@ -1,6 +1,7 @@
 package com.monkey.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -9,7 +10,7 @@ import org.springframework.web.filter.CorsFilter;
  * @author tao
  * @date 2020/10/9 1:06 下午
  */
-//@Configuration
+@Configuration
 public class CorsConfig {
 
     public CorsConfig() {
