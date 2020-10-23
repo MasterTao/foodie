@@ -3,6 +3,7 @@ package com.monkey;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.oas.annotations.EnableOpenApi;
 import tk.mybatis.spring.annotation.MapperScan;
 
@@ -16,6 +17,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 // 扫描所有包以及相关组件包
 @ComponentScan(basePackages = {"com.monkey", "org.n3r.idworker"})
 @EnableOpenApi
+@EnableScheduling
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

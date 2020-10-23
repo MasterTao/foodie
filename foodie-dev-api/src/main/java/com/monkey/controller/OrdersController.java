@@ -2,6 +2,7 @@ package com.monkey.controller;
 
 import com.monkey.enums.OrderStatusEnum;
 import com.monkey.enums.PayMethod;
+import com.monkey.pojo.OrderStatus;
 import com.monkey.pojo.bo.SubmitOrderBO;
 import com.monkey.pojo.vo.MerchantOrdersVO;
 import com.monkey.pojo.vo.OrderVO;
@@ -59,6 +60,9 @@ public class OrdersController extends BaseController {
         MerchantOrdersVO merchantOrdersVO = orderVO.getMerchantOrdersVO();
         merchantOrdersVO.setReturnUrl(PAY_RETURN_URL);
 
+        // 为了方便测试，所以所有的支付金额统一改为一分钱
+        merchantOrdersVO.setAmount(1);
+
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         httpHeaders.add("imoocUserId", "imooc");
@@ -80,5 +84,11 @@ public class OrdersController extends BaseController {
     public Integer notifyMerchantOrderPaid(String merchantOrderId) {
         orderService.updateOrderStatus(merchantOrderId, OrderStatusEnum.WAIT_DELIVER.type);
         return HttpStatus.OK.value();
+    }
+
+    @PostMapping("getPaidOrderInfo")
+    public JsonResult getPaidOrderInfo(String merchantOrderId) {
+        OrderStatus orderStatus = orderService.queryOrderStatusInfo(merchantOrderId);
+        return JsonResult.ok(orderStatus);
     }
 }

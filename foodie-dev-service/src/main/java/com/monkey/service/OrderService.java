@@ -1,5 +1,6 @@
 package com.monkey.service;
 
+import com.monkey.pojo.OrderStatus;
 import com.monkey.pojo.bo.SubmitOrderBO;
 import com.monkey.pojo.vo.OrderVO;
 
@@ -21,4 +22,16 @@ public interface OrderService {
      * @param orderStatus
      */
     void updateOrderStatus(String orderId, Integer orderStatus);
+
+    /**
+     * 查询订单状态
+     * @param orderId
+     * @return
+     */
+    OrderStatus queryOrderStatusInfo(String orderId);
+
+    /**
+     * 关闭超时未支付订单
+     */
+    void closeOrder();
 }

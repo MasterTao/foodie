@@ -12,6 +12,7 @@ import com.monkey.pojo.vo.OrderVO;
 import com.monkey.service.AddressService;
 import com.monkey.service.ItemService;
 import com.monkey.service.OrderService;
+import com.monkey.utils.DateUtil;
 import org.n3r.idworker.Sid;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -19,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author tao
@@ -158,5 +160,40 @@ public class OrderServiceImpl implements OrderService {
         paidStatus.setPayTime(new Date());
 
         orderStatusMapper.updateByPrimaryKeySelective(paidStatus);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
+    @Override
+    public OrderStatus queryOrderStatusInfo(String orderId) {
+        return orderStatusMapper.selectByPrimaryKey(orderId);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    @Override
+    public void closeOrder() {
+
+        // 查询所有未付款的订单，间是否超时（1天），超时则关闭交易
+        OrderStatus queryOrder = new OrderStatus();
+        queryOrder.setOrderStatus(OrderStatusEnum.WAIT_PAY.type);
+        List<OrderStatus> list = orderStatusMapper.select(queryOrder);
+        for (OrderStatus os : list) {
+            // 获得订单创建时间
+            Date createdTime = os.getCreatedTime();
+            // 和当前时间进行对比
+            int days = DateUtil.daysBetween(createdTime, new Date());
+            if (days >= 1) {
+                // 超过一天，关闭订单
+                doCloseOrder(os.getOrderId());
+            }
+        }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    void doCloseOrder(String orderId) {
+        OrderStatus close = new OrderStatus();
+        close.setOrderId(orderId);
+        close.setOrderStatus(OrderStatusEnum.CLOSE.type);
+        close.setCloseTime(new Date());
+        orderStatusMapper.updateByPrimaryKeySelective(close);
     }
 }
