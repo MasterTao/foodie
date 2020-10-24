@@ -1,0 +1,20 @@
+package com.monkey.pojo.vo;
+
+import lombok.Data;
+
+/**
+ * 用户中心，我的订单列表嵌套商品VO
+ * @author tao
+ * @date 2020/10/24 3:19 下午
+ */
+@Data
+public class MySubOrderItemVO {
+
+    private String itemId;
+    private String itemImg;
+    private String itemName;
+    private String itemSpecId;
+    private String itemSpecName;
+    private Integer buyCounts;
+    private Integer price;
+}

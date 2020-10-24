@@ -21,6 +21,10 @@ spring:
       pool-name: DataSourceHikariCP
       max-lifetime: 1800000
       connection-test-query: SELECT 1
+  servlet:
+    multipart:
+      max-file-size: 512000 # 文件上传大小限制为500kb
+      max-request-size: 512000 # 请求大小限制为500kb
 
 # mybatis配置
 mybatis:
