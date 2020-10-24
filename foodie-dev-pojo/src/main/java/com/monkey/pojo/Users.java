@@ -7,6 +7,7 @@ public class Users {
     /**
      * 主键id 用户id
      */
+    @Id
     private String id;
 
     /**
