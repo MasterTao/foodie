@@ -9,6 +9,7 @@
     <result column="realPayAmount" property="realPayAmount" />
     <result column="postAmount" property="postAmount" />
     <result column="orderStatus" property="orderStatus" />
+    <result column="isComment" property="isComment" />
 
     <collection property="subOrderItemList" select="getSubItems" column="orderId" ofType="com.monkey.pojo.vo.MySubOrderItemVO">
       <result column="itemId" property="itemId" />
@@ -28,7 +29,8 @@
       o.pay_method as payMethod,
       o.real_pay_amount as realPayAmount,
       o.post_amount as postAmount,
-      os.order_status as orderStatus
+      os.order_status as orderStatus,
+      o.is_comment as isComment
     from orders o
       inner join order_status os on o.id = os.order_id
     where o.user_id = #{paramsMap.userId}
