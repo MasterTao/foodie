@@ -3,7 +3,7 @@
 <mapper namespace="com.monkey.mapper.ItemsCommentsMapperCustom">
 
   <select id="saveComments" parameterType="Map">
-    insert into items_comments(id, user_id, item_id, item_name, item_spec_id, sepc_name, comment_level, content, created_time, updated_time) SELECT
+    insert into items_comments(id, user_id, item_id, item_name, item_spec_id, sepc_name, comment_level, content, created_time, updated_time)
     values
     <foreach collection="commentList" item="item" index="index" separator=",">
       (
@@ -11,4 +11,31 @@
       )
     </foreach>
   </select>
+
+  <resultMap id="myComments" type="com.monkey.pojo.vo.MyCommentVO">
+    <id column="commentId" property="commentId" />
+    <result column="content" property="content" />
+    <result column="createdTime" property="createdTime" />
+    <result column="itemId" property="itemId" />
+    <result column="itemName" property="itemName" />
+    <result column="sepcName" property="sepcName" />
+    <result column="itemImg" property="itemImg" />
+  </resultMap>
+
+  <select id="queryMyComments" parameterType="Map" resultMap="myComments">
+    select
+      ic.id as commentId,
+      ic.content as content,
+      ic.created_time as createdTime,
+      ic.item_id as itemId,
+      ic.item_name as itemName,
+      ic.sepc_name as sepcName,
+      ii.url as itemImg
+    from items_comments ic
+      inner join items_img ii on ic.item_id = ii.item_id
+    where ic.user_id = #{paramsMap.userId}
+      and ii.is_main = 1
+    order by ic.created_time
+  </select>
+
 </mapper>

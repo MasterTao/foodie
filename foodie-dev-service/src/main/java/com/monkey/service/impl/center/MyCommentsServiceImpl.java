@@ -1,5 +1,6 @@
 package com.monkey.service.impl.center;
 
+import com.github.pagehelper.PageHelper;
 import com.monkey.enums.YesOrNo;
 import com.monkey.mapper.ItemsCommentsMapperCustom;
 import com.monkey.mapper.OrderItemsMapper;
@@ -9,7 +10,9 @@ import com.monkey.pojo.OrderItems;
 import com.monkey.pojo.OrderStatus;
 import com.monkey.pojo.Orders;
 import com.monkey.pojo.bo.center.OrderItemsCommentBO;
+import com.monkey.pojo.vo.MyCommentVO;
 import com.monkey.service.center.MyCommentsService;
+import com.monkey.utils.PagedGridResult;
 import org.n3r.idworker.Sid;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -26,7 +29,7 @@ import java.util.Map;
  * @date 2020/10/23 4:54 下午
  */
 @Service
-public class MyCommentsServiceImpl implements MyCommentsService {
+public class MyCommentsServiceImpl extends BaseService implements MyCommentsService {
 
     @Resource
     private OrderItemsMapper orderItemsMapper;
@@ -76,5 +79,16 @@ public class MyCommentsServiceImpl implements MyCommentsService {
         orderStatus.setOrderId(orderId);
         orderStatus.setCommentTime(new Date());
         orderStatusMapper.updateByPrimaryKeySelective(orderStatus);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
+    @Override
+    public PagedGridResult queryMyComments(String userId, Integer page, Integer pageSize) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("userId", userId);
+
+        PageHelper.startPage(page, pageSize);
+        List<MyCommentVO> myCommentVOS = itemsCommentsMapperCustom.queryMyComments(map);
+        return setterPagedGrid(myCommentVOS, page);
     }
 }

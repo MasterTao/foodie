@@ -2,6 +2,7 @@ package com.monkey.service.center;
 
 import com.monkey.pojo.OrderItems;
 import com.monkey.pojo.bo.center.OrderItemsCommentBO;
+import com.monkey.utils.PagedGridResult;
 
 import java.util.List;
 
@@ -25,4 +26,13 @@ public interface MyCommentsService {
      * @param commentList
      */
     void saveComments(String orderId, String userId, List<OrderItemsCommentBO> commentList);
+
+    /**
+     * 我的评价查询 分页
+     * @param userId
+     * @param page
+     * @param pageSize
+     * @return
+     */
+    PagedGridResult queryMyComments(String userId, Integer page, Integer pageSize);
 }
